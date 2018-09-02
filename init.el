@@ -22,7 +22,7 @@
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
       (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'after-init-hook
+  (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;;----------------------------------------------------------------------------
@@ -44,105 +44,102 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-(require-package 'wgrep)
-(require-package 'diminish)
+(require-package 'wgrep)     ;; wgrep.el --- Writable grep buffer and apply the changes to files
+(require-package 'diminish)  ;; diminish.el --- Diminished modes are minor modes with no modeline display
 (require-package 'scratch)
 (require-package 'command-log-mode)
 
-;; from Chenbin;;;;;;;;;
-(require 'init-chinese) ;; cannot be idle-required
-;;(require 'init-yasnippet)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'init-frame-hooks)
-(require 'init-xterm)
-(require 'init-themes)
-(require 'init-osx-keys)
-(require 'init-gui-frames)
-(require 'init-dired)
-(require 'init-isearch)
+(require 'init-xterm)     ;; require init-frame-hooks 
+(require 'init-themes)    ;;
+;;;; lines with four ';' were set by ahliusj
+;;;; (require 'init-osx-keys)  ;; for Mac os user
+;;;; (require 'init-gui-frames);; stop C-z from minimizing windows under OS X 
+(require 'init-dired)     ;; from emacs wiki: makes an Emacs buffer containing a listing of directory, and optionally some of its subdirectories as well.
+(require 'init-isearch)   ;; show number of matches while searching
 (require 'init-grep)
-(require 'init-uniquify)
-(require 'init-ibuffer)
-(require 'init-flycheck)
+(require 'init-uniquify)  ;; nicer naming of buffers for files with identical names
+(require 'init-ibuffer)   ;; buffer set up
+(require 'init-flycheck)  ;; Syntax checking. support limitted language, see 'www.flycheck.org/en/latest'
 
-(require 'init-recentf)
-(require 'init-smex)
-(require 'init-ivy)
-;;(require 'init-helm)
-(require 'init-hippie-expand)
-(require 'init-company)
-(require 'init-windows)
-(require 'init-sessions)
-(require 'init-fonts)
-(require 'init-mmm)
+(require 'init-recentf)   ;; organize recent files
+(require 'init-smex)      ;; 
+(require 'init-ivy)       ;; an interactive interface for completion
+;; (require 'init-helm)      ;; similar to ivy, incremental completions and narrowing seletions
+(require 'init-hippie-expand)           ;; a single command providing a variety of completions ans expansions. See Emacs WiKi.
+(require 'init-company)                 ;; stands for "complete anything"
+(require 'init-windows)                 ;; emacs frame, called windows, setting
+(require 'init-sessions)                ;; save a list of open files in .emacs.desktop
+(require 'init-fonts)                   ;; 
+(require 'init-mmm)                     ;; multiple major modes
 
-(require 'init-editing-utils)
-(require 'init-whitespace)
+(require 'init-editing-utils)           ;; some setting, huge file
+(require 'init-whitespace)              ;; make white-spaces visible
 
-(require 'init-vc)
-(require 'init-darcs)
-(require 'init-git)
+(require 'init-vc)                      ;; 
+(require 'init-darcs)                   ;; 
+(require 'init-git)                     ;; need init-vc
 (require 'init-github)
 
-(require 'init-projectile)
+(require 'init-projectile)              ;; 
 
-(require 'init-compile)
+(require 'init-compile)                 ;; 
 ;;(require 'init-crontab)
-(require 'init-textile)
-(require 'init-markdown)
-(require 'init-csv)
-(require 'init-erlang)
-(require 'init-javascript)
-(require 'init-php)
-(require 'init-org)
-(require 'init-nxml)
-(require 'init-html)
-(require 'init-css)
-(require 'init-haml)
-(require 'init-http)
-(require 'init-python)
-(require 'init-haskell)
-(require 'init-elm)
-(require 'init-purescript)
-(require 'init-ruby)
-(require 'init-rails)
-(require 'init-sql)
-(require 'init-rust)
-(require 'init-toml)
-(require 'init-yaml)
-(require 'init-docker)
-(require 'init-terraform)
-(require 'init-nix)
-(maybe-require-package 'nginx-mode)
+;; ;; (require 'init-textile)
+;; ;; (require 'init-markdown)
+;; ;; (require 'init-csv)
+;; ;; (require 'init-erlang)
+;; ;; (require 'init-javascript)
+;; ;; (require 'init-php)
+;; ;; (require 'init-org)
+;; ;; (require 'init-nxml)
+;; ;; (require 'init-html)
+;; ;; (require 'init-css)
+;; ;; (require 'init-haml)
+;; ;; (require 'init-http)
+;; ;; (require 'init-python)
+;; ;; (require 'init-haskell)
+;; ;; (require 'init-elm)
+;; ;; (require 'init-purescript)
+;; ;; (require 'init-ruby)
+;; ;; (require 'init-rails)
+;; ;; (require 'init-sql)
+;; ;; (require 'init-rust)
+;; ;; (require 'init-toml)
+;; ;; (require 'init-yaml)
+;; ;; (require 'init-docker)
+;; ;; (require 'init-terraform)
+;; ;; (require 'init-nix)
+;; ;; (maybe-require-package 'nginx-mode)
 
-(require 'init-paredit)
-(require 'init-lisp)
-(require 'init-slime)
-(require 'init-clojure)
-(require 'init-clojure-cider)
-(require 'init-common-lisp)
+(require 'init-paredit)         ;; keep parentheses balanced
+(require 'init-lisp)                    ;; 'Happy hacking ...' is in this file
+;; ;; (require 'init-slime)                   ;; Superior Lisp Interaction Mode, Enhanced
+;; ;; (require 'init-clojure)                 ;; clojure is a kind of Lisp language
+;; ;; (require 'init-clojure-cider)           ;; Clojure Interactive Development Environment that Rocks (CIDER)
+;; ;; (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
-(require 'init-misc)
+(require 'init-misc)                    ;; MISCellaneous file operation
 
-(require 'init-folding)
-(require 'init-dash)
+(require 'init-folding)                 ;; folding
+(require 'init-dash)                    ;; 
 
 ;;(require 'init-twitter)
 ;; (require 'init-mu)
-(require 'init-ledger)
+;; ;; (require 'init-ledger)                  ;; a command line accounting tool 
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
-(require-package 'lua-mode)
-(require-package 'htmlize)
-(require-package 'dsvn)
+;; ;; (require-package 'lua-mode)
+;; ;; (require-package 'htmlize)              ;; onverts the buffer text and the associated decorations to HTML
+;; ;; (require-package 'dsvn)                 ;; This is an interface for managing Subversion working copies.  It can show you an up-to-date view of the current status, and commit changes. If also helps you do other tasks such as updating, switching, diffing and more.
 (when *is-a-mac*
   (require-package 'osx-location))
-(maybe-require-package 'regex-tool)
+(unless (eq system-type 'windows-nt)
+  (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)
 
 (when (maybe-require-package 'uptimes)

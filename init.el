@@ -87,7 +87,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;; shijie ;;;;;;;;;;;
 (require 'init-latex)
-
+(require 'init-yasnippet)
 ;;(require 'init-crontab)
 ;; ;; (require 'init-textile)
 ;; ;; (require 'init-markdown)

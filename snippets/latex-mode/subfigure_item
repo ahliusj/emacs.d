@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: subfigure_item
+# key: sfi
+# --
+\subfigure[${1:subcaption}]
+	{\includegraphics[width=${2:.45}\columnwidth]{${3:picture}.${4:format}}\label{${3}}}
+${0:sfi}

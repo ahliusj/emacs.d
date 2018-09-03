@@ -6,6 +6,8 @@
 ;; Bozhidar Batsov <bozhidar@batsov.com> "https://github.com/bbatsov/prelude"
 ;; and
 ;; XiangYu Guo  "https://github.com/xyguo/emacs.d.git"
+;; and
+;; zhengfaxiang  "https://github.com/zhengfaxiang/emacs.d.git"
 ;;
 
 ;; Version: 1.0.0

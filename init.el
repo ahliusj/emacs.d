@@ -84,6 +84,10 @@
 (require 'init-projectile)              ;; 
 
 (require 'init-compile)                 ;; 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;; shijie ;;;;;;;;;;;
+(require 'init-latex)
+
 ;;(require 'init-crontab)
 ;; ;; (require 'init-textile)
 ;; ;; (require 'init-markdown)

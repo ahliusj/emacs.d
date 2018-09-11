@@ -86,8 +86,28 @@
 (require 'init-compile)                 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;; shijie ;;;;;;;;;;;
+
+;;insert-current-date
+(defun insert-current-date ()
+  "Insert the current date"
+  (interactive "*")
+  ;; (insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))))
+  (insert (format-time-string "%Y/%m/%d" (current-time))))
+(global-set-key "\C-xd" 'insert-current-date)
+
+;;insert-current-time
+(defun insert-current-time ()
+  "Insert the current time"
+  (interactive "*")
+  ;; (insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))))
+  (insert (format-time-string "%H:%M:%S" (current-time))))
+(global-set-key "\C-xt" 'insert-current-time)
+
 (require 'init-latex)
-(require 'init-yasnippet)
+;; TODO: yasnippet doesn't work well
+;; ;; (require 'init-yasnippet)
+(require 'init-org)
+
 ;;(require 'init-crontab)
 ;; ;; (require 'init-textile)
 ;; ;; (require 'init-markdown)
@@ -95,7 +115,7 @@
 ;; ;; (require 'init-erlang)
 ;; ;; (require 'init-javascript)
 ;; ;; (require 'init-php)
-;; ;; (require 'init-org)
+
 ;; ;; (require 'init-nxml)
 ;; ;; (require 'init-html)
 ;; ;; (require 'init-css)

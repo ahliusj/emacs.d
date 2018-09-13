@@ -87,6 +87,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;; shijie ;;;;;;;;;;;
 
+;; show line number
+(global-linum-mode t)
+
 ;;insert-current-date
 (defun insert-current-date ()
   "Insert the current date"

@@ -109,8 +109,8 @@
 (require 'init-latex)
 ;; TODO: yasnippet doesn't work well
 ;; ;; (require 'init-yasnippet)
-(require 'init-org)
-
+(require 'init-org)   ;; comment now, use the primary org-mode
+(require 'init-octave)
 ;;(require 'init-crontab)
 ;; ;; (require 'init-textile)
 ;; ;; (require 'init-markdown)
@@ -163,8 +163,6 @@
 ;; ;; (require-package 'lua-mode)
 ;; ;; (require-package 'htmlize)              ;; onverts the buffer text and the associated decorations to HTML
 ;; ;; (require-package 'dsvn)                 ;; This is an interface for managing Subversion working copies.  It can show you an up-to-date view of the current status, and commit changes. If also helps you do other tasks such as updating, switching, diffing and more.
-(when *is-a-mac*
-  (require-package 'osx-location))
 (unless (eq system-type 'windows-nt)
   (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)

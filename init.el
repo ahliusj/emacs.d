@@ -110,7 +110,7 @@
 ;; TODO: yasnippet doesn't work well
 ;; ;; (require 'init-yasnippet)
 (require 'init-org)   ;; comment now, use the primary org-mode
-;; ;; (require 'init-octave)
+(require 'init-octave)
 
 ;;(require 'init-crontab)
 ;; ;; (require 'init-textile)

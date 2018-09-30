@@ -28,7 +28,6 @@
 ;; use it.
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
-
 
 ;;; On-demand installation of packages
 
@@ -100,5 +99,6 @@ locate PACKAGE."
 
 (add-hook 'package-menu-mode-hook 'sanityinc/maybe-widen-package-menu-columns)
 
+(require-package 'use-package)
 
 (provide 'init-elpa)

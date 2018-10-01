@@ -1,11 +1,14 @@
 ;; -*- lexical-binding: t -*-
-;;; There are two binding regimes refer to how varibles are looked up by their names: Lexical and dynamic binding.   All variables names and their values live in one global table When DYNAMIC. When LEXICAL and each binding scope creats a new table of variable name and values,organized in a hierarchy called "the environment".
+;;; There are two binding regimes refer to how varibles are looked up by their names: Lexical and dynamic binding.
+;;; All variables names and their values live in one global table When DYNAMIC.
+;;; When LEXICAL and each binding scope creats a new table of variable name and values,organized in a hierarchy called "the environment".
 
 ;;; This file was adapted from many configs, purcell's, redguardtoo's, and so on.
 ;;; The comments mainly come from the Emacs manual, Emacs lisp manual, and internet.
 ;;; Many thanks to the contributors!
 
-;;; This variable determines whether the debugger is called when an error is signaled and not handled. If debug-on-error is t, all kinds of errors call the debugger, except those listed in debug-ignored-errors (see below). If it is nil, none call the debugger.  
+;;; This variable determines whether the debugger is called when an error is signaled and not handled.
+;;; If debug-on-error is t, all kinds of errors call the debugger, except those listed in debug-ignored-errors (see below). If it is nil, none call the debugger.  
 (setq debug-on-error t)
 
 ;;; check OS type
@@ -75,16 +78,19 @@
 ;;;; (require 'init-osx-keys)  ;; for Mac os user
 ;;;; (require 'init-gui-frames);; stop C-z from minimizing windows under OS X 
 
-;;; DIRED makes an Emacs buffer containing a listing of directory, and optionally some of its subdirectories as well.
+;;; DIRED makes an Emacs buffer containing a listing of directory,
+;;; and optionally some of its subdirectories as well.
 ;;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html
-(require 'init-dired)     ;; from emacs wiki: makes an Emacs buffer containing a listing of directory, and optionally some of its subdirectories as well.
+(require 'init-dired)
 (require 'init-isearch)   ;; show number of matches while searching
 (require 'init-grep)
-(require 'init-uniquify)  ;; built-in function, making Buffer Names Unique. nicer naming of buffers for files with identical names
+;; built-in function, making Buffer Names Unique. nicer naming of buffers for files with identical names
+(require 'init-uniquify)  
 ;;; fullframe,
 ;;; ibuffer-vc, list buffers with their dirs. https://github.com/purcell/ibuffer-vc 
 (require 'init-ibuffer)   ;; buffer set up
-(require 'init-flycheck)  ;; Syntax checking. support limitted language, see 'www.flycheck.org/en/latest'
+;; Syntax checking. support limitted language, see 'www.flycheck.org/en/latest'
+(require 'init-flycheck)  
 
 (require 'init-recentf)   ;; organize recent files
 (require 'init-smex)      ;; 

@@ -1,5 +1,18 @@
 ;; -*- lexical-binding: t -*-
+;;; There are two binding regimes refer to how varibles are looked up by their names: Lexical and dynamic binding.   All variables names and their values live in one global table When DYNAMIC. When LEXICAL and each binding scope creats a new table of variable name and values,organized in a hierarchy called "the environment".
+
+;;; This file was adapted from many configs, purcell's, redguardtoo's, and so on.
+;;; The comments mainly come from the Emacs manual, Emacs lisp manual, and internet.
+;;; Many thanks to the contributors!
+
+;;; This variable determines whether the debugger is called when an error is signaled and not handled. If debug-on-error is t, all kinds of errors call the debugger, except those listed in debug-ignored-errors (see below). If it is nil, none call the debugger.  
 (setq debug-on-error t)
+
+;;; check OS type
+(message "Operating System Type: %s" system-type)
+;;; check Emacs version
+(message "Emacs Version: %s" emacs-version)
+;; (when (version< emacs-version "24.3"))
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
@@ -10,6 +23,9 @@
 (when (version< emacs-version "24.5")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
+;;; https://www.gnu.org/software/emacs/manual/html_node/elisp/List-Variables.html
+;;; =expand-file-name= this function converts filename to a absolute file name
+;;; =user-emacs-directory= this varible holds the name of the =~/.emacs.d= directory
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-benchmarking) ;; Measure startup time
@@ -29,6 +45,8 @@
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
+;;; recommended, since some customirized configuration will automatically be
+;;; written to the custom-file, otherwise, will be here
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
@@ -56,10 +74,15 @@
 ;;;; lines with four ';' were set by ahliusj
 ;;;; (require 'init-osx-keys)  ;; for Mac os user
 ;;;; (require 'init-gui-frames);; stop C-z from minimizing windows under OS X 
+
+;;; DIRED makes an Emacs buffer containing a listing of directory, and optionally some of its subdirectories as well.
+;;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html
 (require 'init-dired)     ;; from emacs wiki: makes an Emacs buffer containing a listing of directory, and optionally some of its subdirectories as well.
 (require 'init-isearch)   ;; show number of matches while searching
 (require 'init-grep)
-(require 'init-uniquify)  ;; nicer naming of buffers for files with identical names
+(require 'init-uniquify)  ;; built-in function, making Buffer Names Unique. nicer naming of buffers for files with identical names
+;;; fullframe,
+;;; ibuffer-vc, list buffers with their dirs. https://github.com/purcell/ibuffer-vc 
 (require 'init-ibuffer)   ;; buffer set up
 (require 'init-flycheck)  ;; Syntax checking. support limitted language, see 'www.flycheck.org/en/latest'
 
@@ -156,7 +179,7 @@
 
 (require 'init-misc)                    ;; MISCellaneous file operation
 
-(require 'init-folding)                 ;; folding
+(require 'init-folding)                 ;; Origami, A text folding minor mode for Emacs. 
 (require 'init-dash)                    ;; 
 
 ;;(require 'init-twitter)

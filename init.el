@@ -1,14 +1,16 @@
 ;; -*- lexical-binding: t -*-
 ;;; There are two binding regimes refer to how varibles are looked up by their names: Lexical and dynamic binding.
 ;;; All variables names and their values live in one global table When DYNAMIC.
-;;; When LEXICAL and each binding scope creats a new table of variable name and values,organized in a hierarchy called "the environment".
+;;; When LEXICAL and each binding scope creats a new table of variable name and values,
+;;; organized in a hierarchy called "the environment".
 
 ;;; This file was adapted from many configs, purcell's, redguardtoo's, and so on.
 ;;; The comments mainly come from the Emacs manual, Emacs lisp manual, and internet.
 ;;; Many thanks to the contributors!
 
 ;;; This variable determines whether the debugger is called when an error is signaled and not handled.
-;;; If debug-on-error is t, all kinds of errors call the debugger, except those listed in debug-ignored-errors (see below). If it is nil, none call the debugger.  
+;;; If debug-on-error is t, all kinds of errors call the debugger, except those listed in debug-ignored-errors (see below).
+;;; If it is nil, none call the debugger.  
 (setq debug-on-error t)
 
 ;;; check OS type
@@ -84,7 +86,8 @@
 (require 'init-dired)
 (require 'init-isearch)   ;; show number of matches while searching
 (require 'init-grep)
-;; built-in function, making Buffer Names Unique. nicer naming of buffers for files with identical names
+;;; built-in function, making Buffer Names Unique.
+;;; nicer naming of buffers for files with identical names
 (require 'init-uniquify)  
 ;;; fullframe,
 ;;; ibuffer-vc, list buffers with their dirs. https://github.com/purcell/ibuffer-vc 
@@ -195,8 +198,12 @@
 
 (require-package 'gnuplot)
 ;; ;; (require-package 'lua-mode)
-;; ;; (require-package 'htmlize)              ;; onverts the buffer text and the associated decorations to HTML
-;; ;; (require-package 'dsvn)                 ;; This is an interface for managing Subversion working copies.  It can show you an up-to-date view of the current status, and commit changes. If also helps you do other tasks such as updating, switching, diffing and more.
+;;; onverts the buffer text and the associated decorations to HTML
+;; ;; (require-package 'htmlize)              
+;;; This is an interface for managing Subversion working copies.
+;;; It can show you an up-to-date view of the current status, and commit changes.
+;;; If also helps you do other tasks such as updating, switching, diffing and more.
+;; ;; (require-package 'dsvn)                 
 (unless (eq system-type 'windows-nt)
   (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)

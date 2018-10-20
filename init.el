@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t -*-
 ;;; There are two binding regimes refer to how varibles are looked up by their names: Lexical and dynamic binding.
 ;;; All variables names and their values live in one global table When DYNAMIC.
 ;;; When LEXICAL and each binding scope creats a new table of variable name and values,
@@ -144,7 +144,7 @@
 ;; ;; (require 'init-yasnippet)
 (require 'init-org)   ;; comment now, use the primary org-mode
 (require 'init-octave)
-;; (require 'init-chinese)
+(require 'init-chinese)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

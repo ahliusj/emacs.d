@@ -145,7 +145,7 @@
 (require 'init-org)   ;; comment now, use the primary org-mode
 (require 'init-octave)
 (require 'init-chinese)
-
+(require 'init-emacs-w3m)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;(require 'init-crontab)
